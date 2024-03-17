@@ -55,6 +55,17 @@ public class Application {
                 .max(Comparator.comparingInt(user -> countApplications(user, applications)))
                 .orElse(null);
     }
+    public static List<Application> getUserApplicationsByEmail(String email, List<Application> applications) {
+        List<Application> userApplications = new ArrayList<>();
+
+        for (Application application : applications) {
+            if (application.getUser().getEmail().equals(email)) {
+                userApplications.add(application);
+            }
+        }
+
+        return userApplications;
+    }
     private static int countApplications(User user, List<Application> applications) {
         return (int) applications.stream()
                 .filter(app -> app.getUser().equals(user))

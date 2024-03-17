@@ -5,11 +5,20 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Bank {
-
+    private static Bank instance; //singleton icin instant
     private String name;
     private List<Loan> loanList;
     private List<CreditCard> creditCards;
 
+    private Bank() {
+
+    }
+    public static Bank getInstance() {
+        if (instance == null) {
+            instance = new Bank();
+        }
+        return instance;
+    }
     public String getName() {
         return name;
     }

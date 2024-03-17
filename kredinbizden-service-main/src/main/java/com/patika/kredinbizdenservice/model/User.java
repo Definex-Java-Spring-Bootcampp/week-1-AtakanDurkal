@@ -20,6 +20,10 @@ public class User {
 
     private static List<String> registeredEmails = new ArrayList<>();//
 
+    public static List<String> getRegisteredEmails() {
+        return registeredEmails;
+    }
+
     public User(String name, String surname, LocalDate birthDate, String email, String password, String phoneNumber, Boolean isActive) {
         this.name = name;
         this.surname = surname;
